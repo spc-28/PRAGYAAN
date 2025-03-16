@@ -18,7 +18,7 @@ export default function Appbar({ label, onClick, children }: { label: string; on
         }
         else {
             localStorage.removeItem("token");
-            nav('/signIn');
+            nav('/');
         }
     }
 
