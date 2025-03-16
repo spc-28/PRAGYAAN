@@ -34,7 +34,7 @@ export default function CA(){
     return <div className="pl-2 h-screen flex flex-col justify-center items-center gap-4 w-1/2 max-sm:pb-14">
         <div className="flex flex-col items-center mb-2 max-sm:w-96">
         <p className="font-bold text-4xl ">Create an account</p>
-        <p>Already have an account? <u><Link to={"/signin"}>Login</Link></u></p>
+        <p>Already have an account? <u><Link to={"/"}>Login</Link></u></p>
         </div>
         <Input label="First Name" ph="Enter First name" type="text" onChange={(e)=>{
             setPostInputs(c=>({...c,firstName:e.target.value}))

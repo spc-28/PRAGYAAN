@@ -42,5 +42,10 @@ export default function LP(){
             setPostInputs(c=>({...c,password:e.target.value}))
         }}/>
         <Button1 label="SignIn" onClick={sendRequest}></Button1>
+        <div className="mt-2 flex flex-col">
+            Test User<br></br>
+            Email: user2@domain.com<br/>
+            Password: 1234567890
+        </div>
     </div>
 }
