@@ -13,6 +13,7 @@ import { BACKEND_URL } from './config';
 import axios from 'axios';
 import { useEffect } from 'react';
 import Bookmarks from './pages/Bookmarks';
+import LandingPage from './pages/LandingPage';
 
 function App() {
 
@@ -20,9 +21,11 @@ function App() {
   const status = useRecoilValue(fetchStatus);
 
     useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) return;
         axios.get(`${BACKEND_URL}/api/v1/user`, {
             headers: {
-                authorization: localStorage.getItem('token')
+                authorization: token
             }
         }).then(res => {
             userState(res.data);
@@ -33,8 +36,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/" element={<SignIn />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:id" element={<Blog />} />
           <Route path="/publish" element={<Publish />} />

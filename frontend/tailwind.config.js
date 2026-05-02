@@ -11,6 +11,8 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
         robotoCondensed: ['Roboto Condensed', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
+        space: ['Space Grotesk', 'sans-serif'],
       },
       screens:{
         '3xl': '1900px',
