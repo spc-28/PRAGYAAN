@@ -5,16 +5,16 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.0",
-    "@prisma/client": "^5.16.1",
-    "@prisma/extension-accelerate": "^1.1.0",
+    "@google/genai": "^1.51.0",
+    "@prisma/client": "^6.19.3",
+    "@prisma/extension-accelerate": "^3.0.1",
     "@spc-28/pragyaan-common": "^1.0.0",
-    "hono": "^4.4.12",
-    "prisma": "^5.16.1",
+    "hono": "^4.12.16",
+    "prisma": "^6.19.3",
     "scrypt-js": "^3.0.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240529.0",
-    "wrangler": "^3.57.2"
+    "@cloudflare/workers-types": "^4.20260502.1",
+    "wrangler": "^4.87.0"
   }
 }
