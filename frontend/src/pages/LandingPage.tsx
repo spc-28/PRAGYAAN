@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, TrendingUp, Cpu, DollarSign, FlaskConical, BookOpen } from "lucide-react";
 import { motion } from "motion/react";
+import { useRef, useEffect } from "react";
 
 const categories = [
   {
@@ -82,11 +83,19 @@ const featuredPosts = [
 ];
 
 export default function LandingPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5;
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-[0.86rem] flex items-center justify-between">
           <Link to="/">
             <h1 className="text-2xl md:text-3xl font-robotoCondensed font-bold tracking-tight text-stone-900">
               PRAGYAAN
@@ -112,9 +121,22 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Hero Section — full width warm background */}
-      <section className="w-full bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-24 md:py-36 flex h-screen flex-col md:flex-row items-center gap-12 md:gap-20">
+      {/* Hero Section — video background */}
+      <section className="w-full relative overflow-hidden text-white">
+        {/* Video background */}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/hero-bg.mp4"
+        />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-36 flex h-screen flex-col md:flex-row items-center gap-12 md:gap-20">
           {/* Left content */}
           <div className="flex-1 pb-20 max-w-2xl">
             <h2 className="text-5xl md:text-7xl font-playfair font-semibold leading-[1.08] tracking-tight">
